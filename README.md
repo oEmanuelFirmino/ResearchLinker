@@ -1,11 +1,11 @@
-# Web Scraping and Article Analysis Project
+# Web Scraping and Article Analysis
 
 This project implements a system for collecting academic articles, vectorizing their content, and analyzing relationships between articles using graph theory and natural language processing (NLP) techniques. Additionally, it incorporates various rigorous mathematical approaches for semantic analysis, clustering, and trend evaluation in publications. Below, we detail the mathematical foundations of the project, including formulas and the application of graph algorithms and NLP techniques.
 
 ## Project Structure
 
 ```
-WebScrapping/
+ResearchLinker/
 ├── src/
 │   ├── web_scraper.py
 │   ├── article_vectorizer.py
