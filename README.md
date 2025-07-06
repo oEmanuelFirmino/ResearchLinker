@@ -35,18 +35,18 @@ $$
 
 where:
 
-- \($ v_1 $\) and \($ v_2 $\) are the BERT-generated vectors for two words, phrases, or articles.
-- \($ v_1 \cdot v_2 $\) is the dot product, capturing the directional relationship between vectors.
+- $v_1$ and $v_2$ are the BERT-generated vectors for two words, phrases, or articles.
+- $v_1 \cdot v_2$ is the dot product, capturing the directional relationship between vectors.
 - The denominator normalizes the vectors, ensuring the similarity score is between -1 and 1, where 1 indicates identical vectors.
 
 ### 3. Semantic Graph Construction of Articles
 
-Article similarity analysis is performed by creating an undirected graph \($ G = (V, E) $\), where:
+Article similarity analysis is performed by creating an undirected graph $G = (V, E)$, where:
 
-- \($ V $\) is the set of nodes (articles).
-- \($ E $\) is the set of edges between articles, representing their similarity.
+- $V$ is the set of nodes (articles).
+- $E$ is the set of edges between articles, representing their similarity.
 
-The adjacency matrix \($ A $\) of the graph is constructed based on article similarity. If the similarity between two articles \($ A_i $\) and \($ A_j $\) exceeds a threshold \($ \theta $\), an edge is created:
+The adjacency matrix $A$ of the graph is constructed based on article similarity. If the similarity between two articles $A_i$ and $A_j$ exceeds a threshold $\theta$, an edge is created:
 
 $$
 A\_{ij} = \begin{cases}
@@ -63,23 +63,23 @@ Once the graph is built, various centrality algorithms are applied to evaluate t
 
 #### 4.1. Degree Centrality
 
-The degree centrality \($ C\_{\text{degree}}(v) $\) of a node \($ v $\) is given by the number of connections that the node has with other nodes:
+The degree centrality $C\_{\text{degree}}(v)$ of a node $v$ is given by the number of connections that the node has with other nodes:
 
 $$
 C*{\text{degree}}(v) = \sum*{u \in V} A\_{vu}
 $$
 
-where \($ A\_{vu} $\) is an element of the adjacency matrix indicating an edge between nodes \($ v $\) and \($ u $\).
+where $A\_{vu}$ is an element of the adjacency matrix indicating an edge between nodes $v$ and $u$.
 
 #### 4.2. Betweenness Centrality
 
-Betweenness centrality \($ C\_{\text{betweenness}}(v) $\) measures how often a node appears in the shortest paths between two other nodes \($ u $\) and \($ w $\):
+Betweenness centrality $C\_{\text{betweenness}}(v)$ measures how often a node appears in the shortest paths between two other nodes $u$ and $w$:
 
 $$
 C*{\text{betweenness}}(v) = \sum*{u, w \in V} \frac{\sigma(u, v, w)}{\sigma(u, w)}
 $$
 
-where \($ \sigma(u, w) $\) is the number of shortest paths between \($ u $\) and \($ w $\), and \($ \sigma(u, v, w) $\) is the number of shortest paths passing through \($ v $\).
+where $\sigma(u, w)$ is the number of shortest paths between $u$ and $w$, and $\sigma(u, v, w)$ is the number of shortest paths passing through $v$.
 
 #### 4.3. PageRank Centrality
 
@@ -91,25 +91,25 @@ $$
 
 where:
 
-- \($ PR(v) $\) is the PageRank score of node \($ v $\).
-- \($ d $\) is the damping factor $(typically $ $0.85)$.
-- \($ N(v) $\) is the set of neighbors of \($ v $\).
-- \($ |N(u)| $\) is the number of neighbors of node \($ u $\).
+- $PR(v)$ is the PageRank score of node $v$.
+- $d$ is the damping factor typically $0.85.
+- $N(v)$ is the set of neighbors of $v$.
+- $|N(u)|$ is the number of neighbors of node $u$.
 
 These metrics help identify key articles within an academic field and track publication trends.
 
 ### 5. Article Clustering (Topic Modeling)
 
-Article clustering is performed using clustering techniques such as K-means, which aims to minimize intra-cluster distance and maximize inter-cluster separation. The K-means formula for centroid \($ C_k $\) of a cluster \($ k $\) is:
+Article clustering is performed using clustering techniques such as K-means, which aims to minimize intra-cluster distance and maximize inter-cluster separation. The K-means formula for centroid $C_k$ of a cluster $k$ is:
 
 $$
-C*k = \frac{1}{|S_k|} \sum*{x_i \in S_k} x_i
+C * k = \frac{1}{|S_k|} \sum*{x_i \in S_k} x_i
 $$
 
 where:
 
-- \($ S_k $\) is the set of articles in cluster \($ k $\).
-- \($ x_i $\) is the feature vector of article \($ i $\).
+- $S_k$ is the set of articles in cluster $k$.
+- $x_i$ is the feature vector of article $i$.
 
 Additionally, techniques like Latent Dirichlet Allocation $(LDA)$ can be used to model topic distributions across a document collection.
 
